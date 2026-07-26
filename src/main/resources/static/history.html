@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Analytics Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+
+            background:#0f172a;
+
+            color:white;
+
+            padding:40px;
+        }
+
+        h1{
+
+            text-align:center;
+
+            margin-bottom:40px;
+
+            font-size:42px;
+        }
+
+        .chart-container{
+
+            width:90%;
+
+            margin:auto;
+
+            background:#1e293b;
+
+            padding:30px;
+
+            border-radius:20px;
+
+            margin-bottom:40px;
+        }
+
+        canvas{
+
+            background:white;
+
+            padding:20px;
+
+            border-radius:10px;
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+            margin-top:40px;
+
+            background:white;
+
+            color:black;
+        }
+
+        th, td{
+
+            padding:15px;
+
+            border:1px solid gray;
+
+            text-align:left;
+        }
+
+        th{
+
+            background:#2563eb;
+
+            color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>User Analytics Dashboard</h1>
+
+<!-- RESUME SCORE CHART -->
+
+<div class="chart-container">
+
+    <h2>Resume Scores</h2>
+
+    <br>
+
+    <canvas id="resumeChart"></canvas>
+
+</div>
+
+<!-- ATS SCORE CHART -->
+
+<div class="chart-container">
+
+    <h2>ATS Scores</h2>
+
+    <br>
+
+    <canvas id="atsChart"></canvas>
+
+</div>
+
+<!-- HISTORY TABLE -->
+
+<table>
+
+    <thead>
+
+    <tr>
+
+        <th>ID</th>
+
+        <th>Username</th>
+
+        <th>Resume</th>
+
+        <th>Resume Score</th>
+
+        <th>ATS Score</th>
+
+        <th>Detected Skills</th>
+
+        <th>Recommended Jobs</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody id="historyTable">
+
+    </tbody>
+
+</table>
+
+<script>
+
+async function loadHistory(){
+
+    /*
+        GET USERNAME
+     */
+
+    const username =
+        localStorage.getItem(
+            "username"
+        );
+
+    /*
+        CHECK LOGIN
+     */
+
+    if(!username){
+
+        alert(
+            "Please login first."
+        );
+
+        window.location.href =
+            "/login.html";
+
+        return;
+    }
+
+    /*
+        FETCH HISTORY
+     */
+
+    const response =
+        await fetch(
+
+            `/api/history/${username}`
+        );
+
+    const data =
+        await response.json();
+
+    console.log(data);
+
+    /*
+        TABLE
+     */
+
+    const table =
+        document.getElementById(
+            "historyTable"
+        );
+
+    let resumeScores = [];
+
+    let atsScores = [];
+
+    let labels = [];
+
+    data.forEach(item => {
+
+        table.innerHTML += `
+
+            <tr>
+
+                <td>${item.id}</td>
+
+                <td>${item.username}</td>
+
+                <td>${item.fileName}</td>
+
+                <td>${item.score}</td>
+
+                <td>${item.atsScore}</td>
+
+                <td>${item.detectedSkills}</td>
+
+                <td>${item.recommendedJobs}</td>
+
+            </tr>
+        `;
+
+        /*
+            CHART DATA
+         */
+
+        labels.push(
+            item.fileName
+        );
+
+        resumeScores.push(
+            item.score
+        );
+
+        atsScores.push(
+            item.atsScore
+        );
+    });
+
+    /*
+        RESUME SCORE CHART
+     */
+
+    const resumeCtx =
+        document.getElementById(
+            "resumeChart"
+        );
+
+    new Chart(resumeCtx, {
+
+        type:"bar",
+
+        data:{
+
+            labels:labels,
+
+            datasets:[{
+
+                label:"Resume Scores",
+
+                data:resumeScores
+            }]
+        }
+    });
+
+    /*
+        ATS SCORE CHART
+     */
+
+    const atsCtx =
+        document.getElementById(
+            "atsChart"
+        );
+
+    new Chart(atsCtx, {
+
+        type:"line",
+
+        data:{
+
+            labels:labels,
+
+            datasets:[{
+
+                label:"ATS Scores",
+
+                data:atsScores
+            }]
+        }
+    });
+}
+
+loadHistory();
+
+</script>
+
+</body>
+</html>
