@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>AI Resume Analyzer</title>
+
+<link rel="stylesheet"
+      href="css/resume-analyzer.css">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+```
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+```
+<div class="logo">
+
+    Smart Career Assistant
+
+</div>
+
+<div class="nav-links">
+
+    <a href="/">Home</a>
+
+    <a href="/ats.html">ATS Match</a>
+
+    <a href="/interview.html">Interview Prep</a>
+
+    <a href="/job-role-predictor.html">Job Predictor</a>
+
+    <a href="/history.html">History</a>
+
+</div>
+```
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+```
+<h1>
+
+    AI Resume Analyzer
+
+</h1>
+
+<p>
+
+    Upload your resume and get ATS score,
+    skill detection, job recommendations,
+    AI suggestions and interview preparation.
+
+</p>
+```
+
+</section>
+
+<!-- MAIN CONTENT -->
+
+<div class="analysis-container">
+
+```
+<!-- UPLOAD SECTION -->
+
+<div class="upload-card">
+
+    <i class="fa-solid fa-file-arrow-up upload-icon"></i>
+
+    <h2>
+
+        Upload Resume
+
+    </h2>
+
+    <p class="upload-text">
+
+        Upload your PDF resume and receive
+        instant AI-powered analysis.
+
+    </p>
+
+    <input type="file"
+           id="resumeFile"
+           accept=".pdf">
+
+    <br><br>
+
+    <button onclick="uploadResume()">
+
+        Analyze Resume
+
+    </button>
+
+</div>
+
+<!-- LOADING -->
+
+<div class="loading"
+     id="loading">
+
+    <i class="fa-solid fa-spinner"></i>
+
+    Analyzing Resume...
+
+</div>
+
+<!-- RESULT SECTION -->
+
+<div class="result-container"
+     id="resultContainer">
+
+    <!-- SCORE CARDS -->
+
+    <div class="score-grid">
+
+        <div class="score-card">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h3>
+
+                Resume Score
+
+            </h3>
+
+            <div class="score-value"
+                 id="score">
+
+                0
+
+            </div>
+
+        </div>
+
+        <div class="score-card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>
+
+                ATS Score
+
+            </h3>
+
+            <div class="score-value"
+                 id="atsScore">
+
+                0
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DETECTED SKILLS -->
+
+    <div class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-code"></i>
+
+            Detected Skills
+
+        </h2>
+
+        <div id="detectedSkills"
+             class="skills">
+
+        </div>
+
+    </div>
+
+    <!-- MISSING SKILLS -->
+
+    <div class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            Missing Skills
+
+        </h2>
+
+        <div id="missingSkills"
+             class="skills">
+
+        </div>
+
+    </div>
+
+    <!-- RECOMMENDED JOBS -->
+
+    <div class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Recommended Jobs
+
+        </h2>
+
+        <div id="recommendedJobs"
+             class="skills">
+
+        </div>
+
+    </div>
+
+    <!-- AI SUGGESTIONS -->
+
+    <div class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-robot"></i>
+
+            AI Suggestions
+
+        </h2>
+
+        <div id="suggestion"
+             class="suggestion">
+
+        </div>
+
+    </div>
+
+    <!-- INTERVIEW QUESTIONS -->
+
+    <div class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-user-tie"></i>
+
+            Interview Questions
+
+        </h2>
+
+        <div id="interviewQuestions"
+             class="suggestion">
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+```
+© 2026 Smart Career Assistant
+```
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

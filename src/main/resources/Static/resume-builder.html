@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Builder | Smart Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="/css/resume-builder.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-brain"></i>
+
+        <span>
+
+            Smart Career Assistant
+
+        </span>
+
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="/">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+        <a href="/resume-analysis.html">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            Resume Analysis
+
+        </a>
+
+        <a href="/ats.html">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            ATS Match
+
+        </a>
+
+        <a href="/roadmap.html">
+
+            <i class="fa-solid fa-road"></i>
+
+            Career Roadmap
+
+        </a>
+
+    </nav>
+
+</header>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="badge">
+
+            🚀 AI Powered Resume Builder
+
+        </span>
+
+        <h1>
+
+            Build a Resume
+            That Recruiters
+            Actually Notice.
+
+        </h1>
+
+        <p>
+
+            Design a beautiful ATS-friendly resume,
+            preview it live,
+            select professional templates,
+            and download a polished PDF in seconds.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#builder">
+
+                <button class="primary-btn">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Build Resume
+
+                </button>
+
+            </a>
+
+            <button class="secondary-btn">
+
+                <i class="fa-solid fa-star"></i>
+
+                ATS Optimized
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="hero-card">
+
+            <i class="fa-solid fa-file"></i>
+
+            <h3>
+
+                Professional Templates
+
+            </h3>
+
+            <p>
+
+                ATS Friendly Resume Layouts
+
+            </p>
+
+        </div>
+
+        <div class="hero-card">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>
+
+                AI Suggestions
+
+            </h3>
+
+            <p>
+
+                Improve Resume with Gemini AI
+
+            </p>
+
+        </div>
+
+        <div class="hero-card">
+
+            <i class="fa-solid fa-download"></i>
+
+            <h3>
+
+                PDF Download
+
+            </h3>
+
+            <p>
+
+                One Click Resume Export
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MAIN BUILDER -->
+<!-- ========================= -->
+
+<section
+        class="builder-section"
+        id="builder">
+
+<div class="builder-layout">
+
+<!-- ========================= -->
+<!-- LEFT SIDE -->
+<!-- ========================= -->
+
+<div class="left-panel">
+
+<form id="resumeForm">
+
+<!-- ========================= -->
+<!-- TEMPLATE CARD -->
+<!-- ========================= -->
+
+
+
+
+
+<h3>
+
+Minimal
+
+</h3>
+
+<span>
+
+Simple & Clean Resume
+
+</span>
+
+</div>
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- PROFILE PHOTO -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-camera"></i>
+
+            Profile Photo
+
+        </h2>
+
+        <p>
+
+            Upload a professional profile photo.
+
+        </p>
+
+    </div>
+
+    <div class="photo-upload-area">
+
+        <div class="photo-preview">
+
+            <img
+                    id="previewImage"
+                    src="https://via.placeholder.com/180x180"
+                    alt="Profile Photo">
+
+        </div>
+
+        <div class="photo-content">
+
+            <h3>
+
+                Upload Your Photo
+
+            </h3>
+
+            <p>
+
+                JPG, PNG or JPEG (Max 5 MB)
+
+            </p>
+
+            <label
+                    for="profilePhoto"
+                    class="upload-btn">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                Choose Image
+
+            </label>
+
+            <input
+                    type="file"
+                    id="profilePhoto"
+                    accept="image/*"
+                    hidden>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- PERSONAL INFORMATION -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-user"></i>
+
+            Personal Information
+
+        </h2>
+
+        <p>
+
+            Enter your professional details.
+
+        </p>
+
+    </div>
+
+    <div class="input-grid">
+
+        <div class="input-group">
+
+            <label>
+
+                Full Name
+
+            </label>
+
+            <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Krishna Yadav">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Email Address
+
+            </label>
+
+            <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Mobile Number
+
+            </label>
+
+            <input
+                    type="text"
+                    id="phone"
+                    placeholder="+91 XXXXX XXXXX">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                LinkedIn Profile
+
+            </label>
+
+            <input
+                    type="text"
+                    id="linkedin"
+                    placeholder="https://linkedin.com/in/username">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                GitHub Profile
+
+            </label>
+
+            <input
+                    type="text"
+                    id="github"
+                    placeholder="https://github.com/username">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- PROFESSIONAL SUMMARY -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            Professional Summary
+
+        </h2>
+
+        <p>
+
+            Write a short summary about yourself.
+
+        </p>
+
+    </div>
+
+    <textarea
+
+            id="summary"
+
+            rows="7"
+
+            placeholder="Example:
+
+Passionate Software Engineer with experience in Java, Spring Boot, SQL and Artificial Intelligence. Skilled in developing scalable web applications and solving real-world problems through modern technologies.">
+
+    </textarea>
+
+</div>
+
+<!-- ========================= -->
+<!-- EDUCATION -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            Education
+
+        </h2>
+
+        <p>
+
+            Add your educational qualifications.
+
+        </p>
+
+    </div>
+
+    <textarea
+
+            id="education"
+
+            rows="7"
+
+            placeholder="Example:
+
+Bachelor of Technology (Computer Science)
+
+Sam Higginbottom University
+
+2023 - 2027
+
+CGPA : 8.4">
+
+    </textarea>
+
+</div>
+
+<!-- ========================= -->
+<!-- SKILLS -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-code"></i>
+
+            Technical Skills
+
+        </h2>
+
+        <p>
+
+            Mention your technical skills.
+
+        </p>
+
+    </div>
+
+    <textarea
+
+            id="skills"
+
+            rows="6"
+
+            placeholder="Java, Spring Boot, Hibernate, MySQL, HTML, CSS, JavaScript, React, REST API, Python, Machine Learning">
+
+    </textarea>
+
+</div>
+
+<!-- ========================= -->
+<!-- PROJECTS -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-diagram-project"></i>
+
+            Projects
+
+        </h2>
+
+        <p>
+
+            Mention your best academic or professional projects.
+
+        </p>
+
+    </div>
+
+    <textarea
+
+            id="projects"
+
+            rows="8"
+
+            placeholder="Example:
+
+AI Smart Career Assistant
+
+• AI Resume Analyzer
+• ATS Resume Matching
+• Interview Question Generator
+• Career Roadmap Generator
+
+Technology:
+Java, Spring Boot, MySQL, Gemini AI">
+
+    </textarea>
+
+</div>
+
+<!-- ========================= -->
+<!-- EXPERIENCE -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Experience
+
+        </h2>
+
+        <p>
+
+            Add internship or work experience.
+
+        </p>
+
+    </div>
+
+    <textarea
+
+            id="experience"
+
+            rows="8"
+
+            placeholder="Example:
+
+Java Full Stack Intern
+
+Company Name
+
+Duration
+
+Responsibilities:
+
+• Developed REST APIs
+
+• Worked with Spring Boot
+
+• Designed MySQL Database
+
+• Fixed Bugs & Testing">
+
+    </textarea>
+
+</div>
+
+<!-- ========================= -->
+<!-- CERTIFICATIONS -->
+<!-- ========================= -->
+
+<div class="glass-card">
+
+    <div class="card-header">
+
+        <h2>
+
+            <i class="fa-solid fa-certificate"></i>
+
+            Certifications
+
+        </h2>
+
+        <p>
+
+            Add your certifications.
+
+        </p>
+
+    </div>
+
+    <textarea
+
+            id="certifications"
+
+            rows="6"
+
+            placeholder="Java Full Stack
+
+Data Science with Python
+
+Spring Boot
+
+SQL
+
+AWS Cloud Practitioner">
+
+    </textarea>
+
+</div>
+
+<!-- ========================= -->
+<!-- ACTION BUTTONS -->
+<!-- ========================= -->
+
+<div class="action-buttons">
+
+    <button
+
+            type="button"
+
+            class="generate-btn"
+
+            onclick="generateResume()">
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        Generate Resume PDF
+
+    </button>
+
+    <button
+
+            type="reset"
+
+            class="reset-btn">
+
+        <i class="fa-solid fa-rotate-left"></i>
+
+        Reset Form
+
+    </button>
+
+</div>
+
+</form>
+
+</div>
+<!-- END LEFT PANEL -->
+
+
+<!-- ========================= -->
+<!-- RIGHT SIDE -->
+<!-- ========================= -->
+
+<div class="preview-section">
+
+    <div class="preview-wrapper">
+
+        <div class="preview-title">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            Live Resume Preview
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- A4 RESUME -->
+        <!-- ========================= -->
+
+        <div class="preview-card">
+
+            <!-- Header -->
+
+            <div class="resume-header">
+
+                <img
+                        id="resumePreviewImage"
+                        class="resume-photo"
+                        src="https://via.placeholder.com/150"
+                        alt="Profile Photo">
+
+                <div class="resume-header-content">
+
+                    <h1 class="preview-name">
+
+                        Your Name
+
+                    </h1>
+
+                    <h3 class="preview-role">
+
+                        Software Engineer
+
+                    </h3>
+
+                    <div class="resume-contact">
+
+                        <span>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            example@gmail.com
+
+                        </span>
+
+                        <span>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +91 XXXXX XXXXX
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <!-- SUMMARY -->
+
+            <section class="resume-block">
+
+                <h2>
+
+                    Professional Summary
+
+                </h2>
+
+                <p id="previewSummary">
+
+                    Your professional summary will appear here.
+
+                </p>
+
+            </section>
+
+            <!-- EDUCATION -->
+
+            <section class="resume-block">
+
+                <h2>
+
+                    Education
+
+                </h2>
+
+                <p id="previewEducation">
+
+                    Education details will appear here.
+
+                </p>
+
+            </section>
+
+            <!-- SKILLS -->
+
+            <section class="resume-block">
+
+                <h2>
+
+                    Technical Skills
+
+                </h2>
+
+                <p id="previewSkills">
+
+                    Skills preview appears here.
+
+                </p>
+
+            </section>
+
+            <!-- PROJECTS -->
+
+            <section class="resume-block">
+
+                <h2>
+
+                    Projects
+
+                </h2>
+
+                <p id="previewProjects">
+
+                    Project details appear here.
+
+                </p>
+
+            </section>
+
+            <!-- EXPERIENCE -->
+
+            <section class="resume-block">
+
+                <h2>
+
+                    Experience
+
+                </h2>
+
+                <p id="previewExperience">
+
+                    Experience appears here.
+
+                </p>
+
+            </section>
+
+            <!-- CERTIFICATIONS -->
+
+            <section class="resume-block">
+
+                <h2>
+
+                    Certifications
+
+                </h2>
+
+                <p id="previewCertifications">
+
+                    Certification details appear here.
+
+                </p>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Loading Overlay -->
+
+<div id="loader" style="display:none">
+
+    <div class="loader-box">
+
+        <div class="spinner"></div>
+
+        <p>
+
+            Generating Resume...
+
+        </p>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<script src="/js/resume-builder.js"></script>
+
+</body>
+
+</html>
