@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Learning Roadmap</title>
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        Smart Career Assistant
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Resume Analyzer</a>
+        <a href="/ats.html">ATS Match</a>
+        <a href="/interview.html">Interview Prep</a>
+        <a href="/roadmap.html">Roadmap</a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>AI Learning Roadmap Generator</h1>
+
+    <p class="subtitle">
+
+        Enter your target role and generate
+        a complete learning roadmap.
+
+    </p>
+
+    <div class="section">
+
+        <h2>Target Role</h2>
+
+        <input
+                type="text"
+                id="targetRole"
+                placeholder="Example: AI Engineer">
+
+    </div>
+
+    <div style="text-align:center">
+
+        <button onclick="generateRoadmap()">
+
+            Generate Roadmap
+
+        </button>
+
+    </div>
+
+    <div class="loading"
+         id="roadmapLoading">
+
+        Generating Roadmap...
+
+    </div>
+
+    <div class="result-container"
+         id="roadmapContainer">
+
+        <div class="section">
+
+            <h2>Generated Roadmap</h2>
+
+            <div class="suggestion"
+                 id="roadmapResult">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/script.js"></script>
+<script src="/js/roadmap.js"></script>
+
+</body>
+
+</html>
